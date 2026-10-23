@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech with Prabh</title>
+<meta name="description" content="Tech with Prabh makes technology simple, practical and useful for everyone. AI tools, apps, gadgets, editing tips and honest reviews.">
+<meta name="theme-color" content="#E9EEFF">
+<meta property="og:title" content="Tech with Prabh">
+<meta property="og:description" content="Tech made simple, practical and useful for everyone. Watch on YouTube and follow on Instagram.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232A43FF'/%3E%3Ctext x='32' y='47' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='42' text-anchor='middle' fill='%23FFE45C'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #E9EEFF;
+    --ink: #0F1340;
+    --cobalt: #2A43FF;
+    --hl: #FFE45C;
+    --pink: #FF5C8D;
+    --red: #E62117;
+    --white: #FFFFFF;
+    --pad: clamp(20px, 4vw, 56px);
+    --max: 1280px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  [hidden] { display: none !important; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--cobalt);
+    outline-offset: 3px;
+  }
+  .band a:focus-visible, .foot a:focus-visible { outline-color: var(--hl); }
+
+  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+
+  /* One display voice: narrow, heavy. It echoes thumbnail and reel-cover lettering. */
+  .display {
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.015em;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; isolation: isolate; }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(42, 67, 255, 0.13) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(42, 67, 255, 0.13) 1px, transparent 1px);
+    background-size: 36px 36px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+            mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+
+  .top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-block: 20px;
+  }
+  .wordmark { font-size: 24px; text-decoration: none; }
+  .top nav { display: flex; gap: 22px; }
+  .top nav a { font-weight: 600; font-size: 16px; text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
+  .top nav a:hover { border-bottom-color: var(--ink); }
+
+  .hero-grid {
+    display: grid; gap: 40px; align-items: end;
+    padding-block: clamp(28px, 6vw, 72px) clamp(56px, 8vw, 112px);
+  }
+  .h1 {
+    font-size: clamp(88px, 24vw, 132px);
+    line-height: 1;
+  }
+  .h1 .ln { display: block; overflow: hidden; line-height: 0.9; padding: 0.07em 0 0.02em; }
+  .h1 .ln > span { display: block; animation: rise 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .h1 .ln:nth-child(2) > span { animation-delay: 0.09s; }
+  .h1 .ln:nth-child(3) > span { animation-delay: 0.18s; }
+  @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+
+  .lede { font-size: clamp(19px, 2.4vw, 22px); max-width: 34rem; margin-top: 24px; }
+
+  .slabs { display: grid; gap: 14px; }
+  .slab {
+    display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+    padding: 24px 26px 22px; min-height: 210px;
+    border-radius: 28px; text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  .slab.yt { background: var(--red); color: var(--white); }
+  .slab.ig { background: var(--pink); color: var(--ink); }
+  .slab .name { font-size: clamp(48px, 7vw, 76px); display: block; }
+  .slab .handle { font-weight: 500; font-size: 16px; margin-top: 8px; display: block; }
+  .slab .foot-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+  .slab .what { max-width: 24ch; font-size: 17px; line-height: 1.35; }
+  .slab .pill {
+    flex: none; background: var(--ink); color: var(--white);
+    font-weight: 700; font-size: 17px; padding: 11px 22px; border-radius: 999px;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .slab:hover { transform: translateY(-5px); }
+  }
+
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; }
+    .h1 { font-size: clamp(120px, 15.5vw, 214px); }
+  }
+
+  /* ---------- Reels ---------- */
+  .section { padding-block: clamp(56px, 9vw, 112px); }
+  .section-head {
+    display: flex; flex-wrap: wrap; align-items: flex-end;
+    justify-content: space-between; gap: 16px 48px; margin-bottom: 28px;
+  }
+  .h2 { font-size: clamp(56px, 9vw, 112px); }
+  .section-head p { max-width: 30rem; }
+
+  .chips {
+    display: flex; gap: 8px; margin: 0 calc(var(--pad) * -1) 28px;
+    padding: 2px var(--pad) 8px; overflow-x: auto; scrollbar-width: none;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  @media (min-width: 900px) {
+    .chips { flex-wrap: wrap; overflow: visible; margin-inline: 0; padding-inline: 0; }
+  }
+  .chip {
+    flex: none; font: inherit; font-weight: 600; font-size: 15px;
+    padding: 8px 16px; border-radius: 999px; cursor: pointer;
+    border: 2px solid var(--ink); background: transparent; color: var(--ink);
+  }
+  .chip:hover { background: rgba(15, 19, 64, 0.08); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--hl); }
+
+  .wall {
+    list-style: none; padding: 0;
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 168px), 1fr));
+  }
+  .cover {
+    container-type: inline-size;
+    position: relative; display: flex; flex-direction: column; justify-content: space-between;
+    aspect-ratio: 9 / 16; padding: 14px; overflow: hidden;
+    border-radius: 14px; text-decoration: none;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .c-cobalt { background: var(--cobalt); color: var(--white); }
+  .c-yellow { background: var(--hl);     color: var(--ink); }
+  .c-pink   { background: var(--pink);   color: var(--ink); }
+  .c-ink    { background: var(--ink);    color: var(--hl); }
+  .c-white  { background: var(--white);  color: var(--cobalt); }
+  .c-more   { background: transparent; color: var(--ink); border: 3px solid var(--ink); }
+
+  .cover .tag {
+    display: inline-block; width: fit-content;
+    font-size: 13px; font-weight: 600; line-height: 1.2;
+    padding: 3px 10px; border-radius: 999px; border: 1.5px solid currentColor;
+  }
+  .cover .title {
+    display: block; margin-top: 12px;
+    font-size: clamp(22px, 17cqw, 40px);
+  }
+  .cover .play {
+    align-self: flex-end; display: grid; place-items: center;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: currentColor; transition: transform 0.2s ease;
+  }
+  .cover .play svg { fill: var(--cover-bg, var(--paper)); margin-left: 2px; }
+  .c-cobalt { --cover-bg: var(--cobalt); }
+  .c-yellow { --cover-bg: var(--hl); }
+  .c-pink   { --cover-bg: var(--pink); }
+  .c-ink    { --cover-bg: var(--ink); }
+  .c-white  { --cover-bg: var(--white); }
+  .cover .img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .cover.has-img .tag, .cover.has-img .title { position: relative; }
+  .cover.has-img .tag { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .cover.has-img .title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cover.has-img .play { position: relative; background: var(--white); }
+  .cover.has-img .play svg { fill: var(--ink); }
+  .c-more .more-text { font-size: clamp(30px, 22cqw, 46px); display: block; }
+  .c-more .more-sub { font-weight: 600; font-size: 15px; }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .cover:hover { transform: translateY(-6px) rotate(-1.2deg); }
+    .cover:hover .play { transform: scale(1.12); }
+  }
+
+  /* ---------- Videos ---------- */
+  .band { background: var(--cobalt); color: var(--white); }
+  .band-grid { display: grid; gap: 36px; align-items: center; }
+  @media (min-width: 900px) { .band-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; } }
+  .band p { max-width: 26rem; margin-top: 20px; }
+  .btn {
+    display: inline-block; margin-top: 28px; text-decoration: none;
+    background: var(--hl); color: var(--ink); font-weight: 700;
+    padding: 14px 26px; border-radius: 999px; transition: transform 0.2s ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) { .btn:hover { transform: translateY(-3px); } }
+  .player {
+    position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden;
+    background: var(--ink); display: grid; place-items: center; text-align: center; padding: 20px;
+  }
+  .player .fallback { font-size: 16px; }
+  .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; gap: 40px; }
+  @media (min-width: 900px) { .about-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; } }
+  .about-grid .h2 { font-size: clamp(52px, 7.5vw, 96px); }
+  .about-copy p { margin-top: 24px; max-width: 30rem; }
+  .topics { list-style: none; padding: 0; }
+  .topics li {
+    display: grid; gap: 2px 24px; padding: 16px 0; border-top: 2px solid var(--ink);
+  }
+  .topics li:last-child { border-bottom: 2px solid var(--ink); }
+  .topics b { font-stretch: 75%; font-weight: 800; font-size: clamp(28px, 3.6vw, 40px); line-height: 1; letter-spacing: -0.01em; }
+  .topics span { font-size: 17px; }
+  @media (min-width: 640px) {
+    .topics li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; }
+  }
+
+  /* ---------- Footer ---------- */
+  .foot { background: var(--ink); color: var(--paper); padding-block: clamp(48px, 7vw, 88px) 32px; }
+  .foot .big { font-size: clamp(64px, 14vw, 190px); line-height: 0.9; }
+  .foot-row { display: flex; flex-wrap: wrap; gap: 14px 32px; align-items: center; justify-content: space-between; margin-top: 40px; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 12px 28px; font-weight: 600; }
+  .foot-links a { text-decoration: none; border-bottom: 2px solid var(--hl); padding-bottom: 2px; }
+  .foot small { font-size: 14px; opacity: 0.75; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <header class="top wrap">
+    <a class="wordmark display" href="#">Tech with Prabh</a>
+    <nav aria-label="Social links">
+      <a href="https://youtube.com/@techwithprabh-r3o" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.instagram.com/techwithprabh" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero-grid" aria-labelledby="site-title">
+      <div>
+        <h1 class="display h1" id="site-title">
+          <span class="ln"><span>Tech</span></span>
+          <span class="ln"><span>with</span></span>
+          <span class="ln"><span>Prabh</span></span>
+        </h1>
+        <p class="lede">Tech made simple, practical and useful for everyone. AI tools, apps, gadgets, editing tips and honest reviews, made with students in mind.</p>
+      </div>
+
+      <div class="slabs">
+        <a class="slab yt" href="https://youtube.com/@techwithprabh-r3o" target="_blank" rel="noopener noreferrer">
+          <span>
+            <span class="name display">YouTube</span>
+            <span class="handle">@techwithprabh-r3o</span>
+          </span>
+          <span class="foot-row">
+            <span class="what">Full videos, how-tos and honest reviews.</span>
+            <span class="pill">Subscribe</span>
+          </span>
+        </a>
+        <a class="slab ig" href="https://www.instagram.com/techwithprabh" target="_blank" rel="noopener noreferrer">
+          <span>
+            <span class="name display">Instagram</span>
+            <span class="handle">@techwithprabh</span>
+          </span>
+          <span class="foot-row">
+            <span class="what">Short reels with quick tips, tools and gadget picks.</span>
+            <span class="pill">Follow</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== REELS ===== -->
+    <section class="wrap section" id="reels" aria-labelledby="reels-title">
+      <div class="section-head">
+        <h2 class="display h2" id="reels-title">Reels</h2>
+        <p>Quick tips, tools and honest takes. Tap a cover to watch the reel on Instagram.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter reels by topic" id="chips"></div>
+      <ul class="wall" id="wall"></ul>
+      <p class="sr-only" id="count" aria-live="polite"></p>
+      <noscript><p><a href="https://www.instagram.com/techwithprabh">Watch my reels on Instagram</a></p></noscript>
+    </section>
+
+    <!-- ===== LATEST VIDEOS ===== -->
+    <section class="band section" id="videos" aria-labelledby="videos-title">
+      <div class="wrap band-grid">
+        <div>
+          <h2 class="display h2" id="videos-title">Latest videos</h2>
+          <p>New uploads from the channel play here. Use the playlist button in the player to jump between videos.</p>
+          <a class="btn" href="https://youtube.com/@techwithprabh-r3o" target="_blank" rel="noopener noreferrer">Subscribe on YouTube</a>
+        </div>
+        <div class="player">
+          <span class="fallback">Player not loading? <a href="https://youtube.com/@techwithprabh-r3o" target="_blank" rel="noopener noreferrer">Open the channel on YouTube</a>.</span>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=UUn35iXYphB-AuxXLSMIMwFA"
+            title="Latest videos from Tech with Prabh"
+            loading="lazy"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="wrap section" id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-copy">
+          <h2 class="display h2" id="about-title">Tech that is simple and useful.</h2>
+          <p>I'm Prabh. I make videos and reels that explain technology in plain words, so you can pick the right app, tool or gadget and get on with your day.</p>
+        </div>
+        <ul class="topics">
+          <li><b>Tech tips and tricks</b><span>Small settings and shortcuts that save time every day.</span></li>
+          <li><b>AI tools</b><span>Tools that help with notes, assignments and ideas.</span></li>
+          <li><b>Apps and websites</b><span>The ones worth installing, and the ones to skip.</span></li>
+          <li><b>Gadgets</b><span>What is good, what is not, and who it is for.</span></li>
+          <li><b>Editing tips</b><span>Cleaner videos and photos, even from your phone.</span></li>
+          <li><b>Student productivity</b><span>Study setups and habits that actually stick.</span></li>
+          <li><b>Honest reviews</b><span>A straight answer on whether it is worth your money.</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="display big">Tech with Prabh</p>
+    <div class="foot-row">
+      <div class="foot-links">
+        <a href="https://youtube.com/@techwithprabh-r3o" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.instagram.com/techwithprabh" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <small>&copy; 2026 Tech with Prabh</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   EDIT YOUR REELS HERE
+   --------------------------------------------------------------------------
+   For each reel:
+     title : text shown on the cover
+     tag   : topic (used for the filter buttons)
+     url   : paste the reel link, e.g. https://www.instagram.com/reel/XXXXXXXX/
+             (leave "" and the cover opens your Instagram profile instead)
+     cover : path or link to your reel cover image, e.g. "covers/reel1.jpg"
+             (leave "" to use the colour cover with the title)
+     color : cobalt | yellow | pink | ink | white   (only for colour covers)
+
+   The reels below are SAMPLES. Replace them with your own.
+   ========================================================================== */
+const INSTAGRAM = "https://www.instagram.com/techwithprabh";
+
+const REELS = [
+  { title: "5 free AI tools every student needs",     tag: "AI tools",     url: "", cover: "", color: "cobalt" },
+  { title: "Apps that make your phone more useful",   tag: "Apps",         url: "", cover: "", color: "yellow" },
+  { title: "Budget gadgets worth buying",             tag: "Gadgets",      url: "", cover: "", color: "ink"    },
+  { title: "Edit like a pro on your phone",           tag: "Editing",      url: "", cover: "", color: "pink"   },
+  { title: "A study setup that actually works",       tag: "Student life", url: "", cover: "", color: "white"  },
+  { title: "Honest review: is it worth your money?",  tag: "Reviews",      url: "", cover: "", color: "cobalt" },
+  { title: "Phone settings to turn on today",         tag: "Tips",         url: "", cover: "", color: "yellow" },
+  { title: "Make notes from any lecture with AI",     tag: "AI tools",     url: "", cover: "", color: "ink"    },
+  { title: "Free websites you will use every day",    tag: "Apps",         url: "", cover: "", color: "pink"   }
+];
+
+/* ---------- Nothing below needs editing ---------- */
+(function () {
+  const wall  = document.getElementById("wall");
+  const chips = document.getElementById("chips");
+  const count = document.getElementById("count");
+  const PLAY  = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
+
+  function el(tag, cls, text) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
+  }
+
+  const items = REELS.map(function (r) {
+    const li = el("li");
+    li.dataset.tag = r.tag;
+
+    const a = el("a", "cover c-" + (r.color || "cobalt"));
+    a.href = r.url || INSTAGRAM;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.setAttribute("aria-label", r.title + " (reel on Instagram)");
+
+    if (r.cover) {
+      a.classList.add("has-img");
+      const img = el("img", "img");
+      img.src = r.cover; img.alt = ""; img.loading = "lazy";
+      a.appendChild(img);
+    }
+
+    const head = el("span");
+    head.appendChild(el("span", "tag", r.tag));
+    head.appendChild(el("span", "title display", r.title));
+    a.appendChild(head);
+
+    const play = el("span", "play");
+    play.setAttribute("aria-hidden", "true");
+    play.innerHTML = PLAY;
+    a.appendChild(play);
+
+    li.appendChild(a);
+    wall.appendChild(li);
+    return li;
+  });
+
+  /* "More on Instagram" tile, always visible */
+  const more = el("li");
+  const ma = el("a", "cover c-more");
+  ma.href = INSTAGRAM; ma.target = "_blank"; ma.rel = "noopener noreferrer";
+  const mt = el("span");
+  mt.appendChild(el("span", "more-text display", "More reels on Instagram"));
+  ma.appendChild(mt);
+  ma.appendChild(el("span", "more-sub", "@techwithprabh"));
+  more.appendChild(ma);
+  wall.appendChild(more);
+
+  /* Filter chips */
+  const tags = ["All"].concat(REELS.map(function (r) { return r.tag; }).filter(function (t, i, arr) { return arr.indexOf(t) === i; }));
+  tags.forEach(function (t, i) {
+    const b = el("button", "chip", t);
+    b.type = "button";
+    b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.addEventListener("click", function () {
+      chips.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+      let shown = 0;
+      items.forEach(function (li) {
+        const show = t === "All" || li.dataset.tag === t;
+        li.hidden = !show;
+        if (show) shown++;
+      });
+      count.textContent = "Showing " + shown + (shown === 1 ? " reel" : " reels") + (t === "All" ? "" : " about " + t);
+    });
+    chips.appendChild(b);
+  });
+})();
+</script>
+</body>
+</html>
